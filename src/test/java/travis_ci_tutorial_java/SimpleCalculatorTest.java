@@ -20,5 +20,20 @@ public class SimpleCalculatorTest {
 	public void testMultiply() {
 		SimpleCalculator calc = new SimpleCalculator();
 		assertEquals(calc.multiply(19, 17), 323);
+	}	
+	@Test
+	public void testDivideByFactor() {
+		SimpleCalculator calc = new SimpleCalculator();
+		assertEquals(calc.divide(323, 17), 19);
+	}
+	@Test
+	public void testDivideByOne() {
+		SimpleCalculator calc = new SimpleCalculator();
+		assertEquals(calc.divide(323, 1), 323);
+	}
+	@Test
+	public void testDivideBySelf() {
+		SimpleCalculator calc = new SimpleCalculator();
+		assertEquals(calc.divide(323, 323), 1);
 	}
 }
