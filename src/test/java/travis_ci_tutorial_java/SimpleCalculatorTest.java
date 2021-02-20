@@ -1,7 +1,7 @@
 package travis_ci_tutorial_java;
 
 import java.util.*;
-
+import java.lang.Integer;
 import static org.junit.Assert.*;
 import org.junit.*;
 
@@ -41,5 +41,14 @@ public class SimpleCalculatorTest {
 	{
 		SimpleCalculator calc = new SimpleCalculator();
 	    calc.divide(42, 0);
+	}
+	@Test(expected = ArithmeticException.class)
+	public void testMultiplyWithOverflow() {
+		SimpleCalculator calc = new SimpleCalculator();
+		int n = calc.multiply(Integer.MAX_VALUE, 2);
+		// Integral type narrowing in Java behaves by discarding 
+		// all but the number of low order bits that will fit into the lvalue type.
+		// We want our calculator to only return mathematically correct values.
+		assertFalse(n == -2);
 	}
 }
