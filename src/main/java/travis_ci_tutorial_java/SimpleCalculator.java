@@ -10,9 +10,9 @@ public class SimpleCalculator {
 	}
 	
 	public int multiply(int a, int b) {
-		long check = a * b;
+		long check = (long) a * (long) b;
 		int ret = a * b;
-		if(check != ret) {
+		if(check != (long) ret) {
 			if(check > 0) {
 				throw new ArithmeticException("Integer Overflow Detected");
 			} else {
