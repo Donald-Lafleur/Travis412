@@ -10,7 +10,16 @@ public class SimpleCalculator {
 	}
 	
 	public int multiply(int a, int b) {
-		return a * b;
+		long check = a * b;
+		int ret = a * b;
+		if(check != ret) {
+			if(check > 0) {
+				throw new ArithmeticException("Integer Overflow Detected");
+			} else {
+				throw new ArithmeticException("Integer Underflow Detected");
+			}
+		}
+		return ret;
 	}
 	
 	public int divide(int a, int b) {
